@@ -4,22 +4,26 @@
     <h1 v-else>ログイン画面</h1>
     <table>
         <tr v-if="flag">
-          <td>ユーザー名：</td><td><input type="txt" v-model="name"></td>
+          <th style="vertical-align: middle">ユーザー名</th><td><input class="input" type="text" v-model="name" placeholder="userName"></td>
         </tr>
         <tr>
-          <td>メールアドレス：</td><td><input type="email" v-model="mailaddress"></td>
+          <th style="vertical-align: middle">メールアドレス</th><td><input class="input" type="email" v-model="mailaddress" placeholder="E-Mail"></td>
         </tr>
         <tr>
-          <td>パスワード：</td><td><input type="password" v-model="password"></td>
+          <th style="vertical-align: middle">パスワード</th><td><input class="input" type="password" v-model="password" placeholder="Password"></td>
         </tr>
       </table>
       <template v-if="!flag">
-        <button @click="login">ログイン</button>
-        <p @click="toggleFlag">新規登録はこちらから</p>
+        <ul style="list-style:none;">
+          <li><button class="button is-info is-outlined" @click="login">ログイン</button></li>
+          <li><button class="button is-ghost" @click="toggleFlag">新規登録はこちらから</button></li>
+        </ul>
       </template>
       <template v-else>
-        <button @click="signs">新規登録</button>
-        <p @click="toggleFlag">ログインはこちらから</p>
+        <ul style="list-style:none;">
+          <li><button class="button is-info is-outlined" @click="signs">新規登録</button></li>
+          <li><button class="button is-ghost" @click="toggleFlag">ログインはこちらから</button></li>
+        </ul>
       </template>
       <!-- <router-link to="/">ログインはこちらから</router-link> -->
   </div>
